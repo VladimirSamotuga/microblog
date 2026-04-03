@@ -37,6 +37,11 @@
 {% block app_content %}
 {% endblock %}
 
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
+
 {# <html>
     <head>
         {% if title %}
