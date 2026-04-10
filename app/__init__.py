@@ -11,22 +11,36 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 
-#from app.auth import bp as auth_bp
-
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
+login.login_view = 'login'
+login.login_message = _l('Пожалуйста, войдите, чтобы открыть эту страницу.')
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
-login.login_view = 'login'
-login.login_message = _l('Пожалуйста, войдите, чтобы открыть эту страницу.')
 
-#from app.errors import bp as errors_bp
-#app.register_blueprint(errors_bp)
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login.init_app(app)
+    mail.init_app(app)
+    bootstrap.init_app(app)
+    moment.init_app(app)
+    babel.init_app(app)
+
+
+from app.auth import bp as auth_bp
+app.register_blueprint(auth_bp, url_prefix='/auth')
+
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
 
 from app import models, routes
 

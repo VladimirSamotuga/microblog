@@ -1,7 +1,5 @@
 Traceback (most recent call last):
-  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\microblog.py", line 1, in <module>
-    from app import app, db
-  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\__init__.py", line 55, in <module>
-    @babel.localeselector
-     ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'Babel' object has no attribute 'localeselector'
+  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\__init__.py", line 2, in <module>
+    from config import Config
+ModuleNotFoundError: No module named 'config'
+PS C:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog> 
