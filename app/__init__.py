@@ -11,6 +11,8 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 
+#from app.auth import bp as auth_bp
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
@@ -23,7 +25,10 @@ babel = Babel(app)
 login.login_view = 'login'
 login.login_message = _l('Пожалуйста, войдите, чтобы открыть эту страницу.')
 
-from app import routes, models, errors
+#from app.errors import bp as errors_bp
+#app.register_blueprint(errors_bp)
+
+from app import models, routes
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
