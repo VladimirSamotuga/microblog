@@ -42,7 +42,7 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 from app.errors import bp as errors_bp
 app.register_blueprint(errors_bp)
 
-from app import models, routes
+#from app import models, routes
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
