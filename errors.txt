@@ -1,5 +1,11 @@
+>>> from elasticsearch import Elasticsearch
+>>> es = Elasticsearch('http://localhost:9200')
+>>> es.index(index='my_index', doc_type='my_index', id=1, body={'text': 'this is a test'})
 Traceback (most recent call last):
-  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\__init__.py", line 2, in <module>
-    from config import Config
-ModuleNotFoundError: No module named 'config'
-PS C:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog> 
+  File "C:\Users\Vladi\AppData\Local\Programs\Python\Python312\Lib\code.py", line 90, in runcode
+    exec(code, self.locals)
+  File "<console>", line 1, in <module>
+  File "C:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\env\Lib\site-packages\elasticsearch\_sync\client\utils.py", line 421, in wrapped
+    return api(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: Elasticsearch.index() got an unexpected keyword argument 'doc_type'
