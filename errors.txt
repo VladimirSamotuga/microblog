@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\microblog.py", line 1, in <module>
+    from app import app, db, cli, create_app
+  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\__init__.py", line 44, in <module>
+    from app.auth import bp as auth_bp
+  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\auth\__init__.py", line 5, in <module>
+    from app.auth import routes
+  File "c:\Work Disk\Vladi\Python\MT. Привет, мир!\microblog\app\auth\routes.py", line 2, in <module>
+    from app import app, db, auth_bp
+ImportError: cannot import name 'auth_bp' from partially initialized module 'app' (most likely due to a circular import) (c:\Work Disk\Vladp\__init__.py)
