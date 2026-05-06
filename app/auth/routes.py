@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.auth import bp
+from app.auth import bp as auth_bp
 from app.auth.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
@@ -156,7 +156,7 @@ def explore():
     return render_template('index.html', title='Explore', posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
 
-@bp.route('/user/<username>/popup')
+@auth_bp.route('/user/<username>/popup')
 @login_required
 def user_popup(username):
     user = User.query.filter_by(username=username).first_or_404()
