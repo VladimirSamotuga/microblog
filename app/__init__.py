@@ -41,13 +41,11 @@ def create_app(config_class=Config):
     return app
 
 
-from app.auth import bp as auth_bp
-app.register_blueprint(auth_bp, url_prefix='/auth')
+from app.auth import bp
+app.register_blueprint(bp, url_prefix='/auth')
 
-from app.errors import bp as errors_bp
-app.register_blueprint(errors_bp)
-
-#from app import models, routes
+from app.errors import bp
+app.register_blueprint(bp)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
